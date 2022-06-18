@@ -44,36 +44,42 @@ print(spiralTraverse(array))
 
 # Another Stategy/ approach Unfinished
 
-# def spiralTraverse(array):
-#     # create start,end col | start, end row
-#     startCol, endCol = 0, len(array[0])-1
-#     startRow, endRow = 0, len(array)-1
-#     returnList = []
-#     # create flag to stop parent while loop
-#     while startCol < endCol and startRow < endRow:
-#         # start iterating the first row
-#         pointer = startCol
-#         while pointer <= endCol:
-#             # this is inclusive of end element
-#             returnList.append(array[startRow][pointer])
-#             pointer += 1
-#         # iterate end column
-#         pointer = startRow + 1
-#         while pointer <= endRow:
-#             returnList.append(array[pointer][endCol])
-#             pointer += 1
-#         # iterate backwards the bottom row not inclusive
-#         pointer -= 1
-#         while pointer >= startCol:
-#             returnList.append(array[endRow][pointer])
-#             pointer -=1
-#         # iterate up the left row not inclusive
-#         pointer = endRow-1
-#         while pointer > startRow:
-#             returnList.append(array[pointer][startRow])
-#             pointer -=1
-#         startRow +=1
-#         startCol +=1
-#         endRow -=1
-#         endCol -= 1
-#     return returnList
+def spiralTraverse(array):
+    # create start,end col | start, end row
+    startCol, endCol = 0, len(array[0])-1
+    startRow, endRow = 0, len(array)-1
+    returnList = []
+    # create flag to stop parent while loop
+    while startCol <= endCol and startRow <= endRow:
+        # start iterating the first row
+        pointer = startCol
+        while pointer <= endCol:
+            # this is inclusive of end element
+            returnList.append(array[startRow][pointer])
+            pointer += 1
+        # iterate end column
+        pointer = startRow + 1
+        while pointer <= endRow:
+            returnList.append(array[pointer][endCol])
+            pointer += 1
+        # iterate backwards the bottom row not inclusive
+        pointer = endCol-1
+        while pointer >= startCol:
+            if startRow == endRow:
+                break
+            returnList.append(array[endRow][pointer])
+            pointer -=1
+        # iterate up the left row not inclusive
+        pointer = endRow-1
+        while pointer > startRow:
+            if startCol == endCol:
+                    break
+            returnList.append(array[pointer][startRow])
+            pointer -=1
+        startRow +=1
+        startCol +=1
+        endRow -=1
+        endCol -= 1
+    return returnList
+
+print(spiralTraverse(array))

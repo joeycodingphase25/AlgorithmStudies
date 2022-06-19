@@ -12,3 +12,15 @@ class Solution:
             else:
                 # when num[i] in dict, then i is the second index value
                 return [numCompliment[nums[i]], i]
+
+
+## Alternative
+
+def twoSum(nums, target):
+    hashmap = {}
+    for idx, value in enumerate(nums):
+        key = target-value
+        if key in hashmap:
+            return [hashmap[key], idx]
+        else:
+            hashmap[value] = idx

@@ -1,12 +1,25 @@
 
-print('5' in '25')
+array = [1,1,2]
+def permutateUnique(array):
+    res = []
+    perm = []
+    count = {n:0 for n in array}
+    for n in array:
+        count[n] +=1
+    
+    def dfs():
+        if len(perm) == len(array):
+            res.append(perm.copy())
+            return
+        for n in count:
+            if count[n] > 0:
+                perm.append(n)
+                count[n] -= 1
 
-def test(num):
-    count = 0
-    for x in range(1,num):
-        if '5' not in str(x):
-            count+=1
-    return count
+                dfs()
 
-
-print(test(1000000000))
+                count[n] += 1
+                perm.pop()
+    dfs()
+    return res
+print(permutateUnique(array))

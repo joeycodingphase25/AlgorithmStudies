@@ -1,6 +1,26 @@
 # Difficulty: Medium
 # Time: O(n*n!) | O(n*n!) space
 
+# Another Approach
+
+def getPermutations(array):
+    res = []
+    # Base Case
+    if len(array)==1:
+        return [array[:]]
+    # tree
+    for i in range(len(array)):
+        n = array.pop(0)
+        perms = getPermutations(array)
+
+        for perm in perms:
+            perm.append(n)
+        res.extend(perms)
+        array.append(n)
+    return res
+
+
+
 # All permutations
 def getPermutations(array):
     permutations = []

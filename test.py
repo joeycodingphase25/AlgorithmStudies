@@ -1,25 +1,23 @@
+from collections import Counter
 
-array = [1,1,2]
-def permutateUnique(array):
-    res = []
-    perm = []
-    count = {n:0 for n in array}
-    for n in array:
-        count[n] +=1
-    
-    def dfs():
-        if len(perm) == len(array):
-            res.append(perm.copy())
-            return
-        for n in count:
-            if count[n] > 0:
-                perm.append(n)
-                count[n] -= 1
+words = ["yo", "act", "flop", "tac", "foo", "cat", "oy", "olfp"]
+def groupAnagrams(words):
+    compare = {}
+    for word in words:
+        var = to_dict(word)
+        if var not in compare:
+            compare[var] = []
+        compare[var].append(word)
+    return compare.values()
 
-                dfs()
+def to_dict(word):
+    #returns dict value to serve as key
+    test = {}
+    for letter in word:
+        if letter not in test:
+            test[letter] = 0
+        else:
+            test[letter] += 1
+    return test
 
-                count[n] += 1
-                perm.pop()
-    dfs()
-    return res
-print(permutateUnique(array))
+groupAnagrams(words)

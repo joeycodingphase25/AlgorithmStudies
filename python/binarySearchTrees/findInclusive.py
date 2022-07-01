@@ -22,7 +22,7 @@ def help(startNode, low, high, resultArray):
         right = help(currentNode.right, low, high, resultArray)
     # here we can return resultArray due to the local nature of variables
     return resultArray
-    pass
+
 
 
 node1 = Node(10)

@@ -19,11 +19,9 @@ def validate_battlefield(field):
     }
     row, col = 0, 0
     maxRow, maxCol = len(field), len(field[0])
-    # Find How big the Ship is and return 
+    # Find How big the Ship is and return  
     def isValidShip(row, col, maxRow, maxCol, count):
-
-
-        # downwards path ?
+       # downwards path ?
         if (row + 1) < maxRow and (field[row+1][col]) == 1:
             row += 1
             while row < maxRow and (field[row][col]) == 1:
@@ -31,7 +29,6 @@ def validate_battlefield(field):
                 count += 1       
                 row += 1
             return count
-
         #  rightwards path ?
         if (col + 1) < maxCol and (field[row][col+1]) == 1:
             col += 1
@@ -42,15 +39,11 @@ def validate_battlefield(field):
             return count
         # if submarine ?
         else:
-            return count
-    
-    # TRAVERSAL PORTION
-    
+            return count  
+    # Find out if it is touching another corner
+    # def isTouching()
+    # TRAVERSAL PORTION 
     while row < maxRow and col < maxCol:
-        # have we seen this square?
-        # if f'{row},{col}' in hashMapValidator:
-        #     continue
-        # base case
         if field[row][col] == 1 and f'{row}, {col}' not in hashMapValidator:
             hashMapValidator[f'{row}, {col}'] = True
             # recieve count and type of battleship
@@ -69,8 +62,7 @@ def validate_battlefield(field):
             row += 1
             col = 0
     # final condition
-    print(list(totalShips.values()))
-     # final condition   
     return True if sum(list(totalShips.values())) == 0 else False
+
 
 validate_battlefield(battleField)

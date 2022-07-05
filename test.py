@@ -1,9 +1,9 @@
-string = "test this works"
 
-def reverse(str):
-    res = ""
-    for letter in string:
-        res = letter + res
-    return res
 
-print(reverse(string))
+def fib(n, dict1={0:1, 1:1}):
+    if n in dict1:
+        return dict1[n]
+    dict1[n] = fib(n-1, dict1) + fib(n-2, dict1)
+    return dict1[n]
+
+print(fib(50))

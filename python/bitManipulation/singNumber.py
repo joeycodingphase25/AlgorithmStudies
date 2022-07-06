@@ -1,5 +1,5 @@
 # O(logN) time, O(1) space
-def singleNumber(self, nums: List[int]) -> int:
+def singleNumber(nums):
         nums.sort()
         left= 0
         right = 1

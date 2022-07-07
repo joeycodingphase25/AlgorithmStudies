@@ -32,7 +32,7 @@ def findK(nums, k):
 print(findK(nums, k))
 
 
-#### another approach O(n) time, O(n) sapce
+#### another approach O(n) time, O(n) space
 
 def findK(nums, k):
     hashmap = {}
@@ -42,7 +42,6 @@ def findK(nums, k):
     for num, value in hashmap.items():
         # store index == value in bucket array
         bucketArray[value].append(num)
-
     res = []
     for lists in reversed(bucketArray):
         for list in bucketArray[lists]:

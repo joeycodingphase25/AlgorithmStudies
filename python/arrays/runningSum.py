@@ -1,4 +1,3 @@
-
 # O(n) time, O(1) space
 def runningSum(array):
     prevNum = 0
